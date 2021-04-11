@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom text-center">
+    <h2 class="h2">All Events</h2>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Organizer</th>
+          <th scope="col">Location</th>
+          <th scope="col">Date</th>
+          <br>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of Events; let i = index">
+          <th scope="row">{{event.id}}</th>
+          <td>{{event.eventName}}</td>
+          <td>{{event.eventOrganizer}}</td>
+          <td>{{event.location}}</td>
+          <td>{{event.eventDate}}</td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
