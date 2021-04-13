@@ -1,13 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar nav-custom navbar-expand-lg navbar-dark ">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
   <a class="navbar-brand">Events</a>
 
-  <div id="navbarNav" class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto ">
+  <div id="navbarNav" class="collapse navbar-collapse" >
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
         <a class="nav-link" routerLinkActive="active" routerLink="/events">Upcoming Events</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/add-book">Add Books</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="/add-event">Add Event</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/events/user/:id">My Events</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto ">

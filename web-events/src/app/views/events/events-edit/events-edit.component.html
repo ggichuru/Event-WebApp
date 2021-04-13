@@ -1,4 +1,4 @@
-<div class="events-container" *ngFor="let event of Events">
+<div class="events-container" *ngFor="let event of userEvent">
 	<div class="event">
 		<div class="event-preview">
 			<h6>Event</h6>
@@ -13,7 +13,7 @@
 			</div>
 			<h6>Location</h6>
 			<h2>{{event.location}}</h2>
-			<button type="button" class="btn btn-info" [routerLink]=[event.id]>View Details</button>
+			<button type="button" class="btn btn-info" [routerLink]=[event.id]>Edit</button><br>
 		</div>
 	</div>
 </div>
@@ -44,3 +44,4 @@
 <div class="floating-text">
 	Part of <a href="#" target="_blank">#NASATS Labs</a>
 </div>
+

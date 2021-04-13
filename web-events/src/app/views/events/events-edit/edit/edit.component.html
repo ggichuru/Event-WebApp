@@ -1,0 +1,68 @@
+<div class="container">
+  <div *ngIf="editEvent" class="edit-form">
+    <h4 class="text-center" > Edit <em style="text-transform: uppercase;">{{editEvent?.eventName}} </em> </h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Event Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="editEvent.eventName"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="location">Event Location</label>
+        <input
+          type="text"
+          class="form-control"
+          id="location"
+          [(ngModel)]="editEvent.location"
+          name="location"
+        />
+      </div>
+      <div class="form-group">
+        <label for="date">Event date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="date"
+          [(ngModel)]="editEvent.eventDate"
+          name="date"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="editEvent.description"
+          name="description"
+        />
+      </div>
+
+
+    </form>
+
+
+    <button class="btn-red btn-info"  (click)="deleteEvent(this.editEvent.id)">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="btn btn-info"
+      (click)="updateEvent(this.editEvent.id, this.editEvent)"
+    >
+      Update
+    </button>
+
+  </div>
+
+  <div *ngIf="!editEvent">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+  </div>
+</div>

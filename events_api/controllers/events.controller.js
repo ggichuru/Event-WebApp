@@ -26,7 +26,6 @@ function addEvent(req, res) {
         eventName: {type: 'string', optional:'false', max:'100'},
         eventOrganizer: {type: 'string', optional:'false', max:'50'},
         description: {type: 'string', optional:'false', max:'500'},
-        categoryId: {type: 'number', optional:'false'},
         eventDate: {type: 'string', optional:'false', max:'100'},
     }
 
@@ -154,14 +153,14 @@ function updateEvent(req, res){
     }
 
     // no users yet
-    const userId = 1
+    const userId = req.userData.userId
 
         // define validation schema
         const schema = {
             eventName: {type: 'string', optional:'false', max:'100'},
             eventOrganizer: {type: 'string', optional:'false', max:'50'},
             description: {type: 'string', optional:'false', max:'500'},
-            categoryId: {type: 'number', optional:'false'},
+            //categoryId: {type: 'number', optional:'false'},
             eventDate: {type: 'string', optional:'false', max:'100'},
         }
     
@@ -195,7 +194,7 @@ function updateEvent(req, res){
 // Delete event
 function deleteEvent(req, res){
     const id = req.params.id;
-    const userId = 1;
+    const userId = req.userData.userId;
 
     models.Event.destroy({where:{id:id, userId:userId}}).then(() => {
         res.status(200).json({

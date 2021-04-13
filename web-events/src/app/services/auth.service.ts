@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Router } from '@angular/router';
 
 const url = 'http://localhost:3030/users';
+const user_key = 'auth_user'
 
 // const httpOptions = {
 //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,6 +18,7 @@ const url = 'http://localhost:3030/users';
 export class AuthService {
   headers = new HttpHeaders().set('Content-Type', 'application/json')
   currentUser = {};
+
 
   constructor(
     private http: HttpClient,
@@ -30,14 +32,25 @@ export class AuthService {
       )
   }
 
+  // save
+
   // Sign in
   userLogin(user: User) {
     return this.http.post(`${url}/login`, user)
       .subscribe((res: any) => {
         localStorage.setItem('token', res.token)
         this.router.navigate(['events'])
+        const token = res.token;
+        if(token) {
+          this.currentUser = res.userId
+        }
       })
   }
+
+  getUserId() {
+    return this.currentUser
+  }
+
 
   getToken() {
     return localStorage.getItem('token')
