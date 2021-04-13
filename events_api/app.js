@@ -5,7 +5,7 @@ const cors = require('cors')
 const app = express()
 
 app.use(bodyParser.json())
-app.use(cors())
+app.use(cors({origin: 'http://localhost:4200', credentials: true}))
 app.use('/uploads', express.static('uploads'))
 
 // Import routes

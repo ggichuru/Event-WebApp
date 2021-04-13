@@ -2,12 +2,23 @@
   <a class="navbar-brand">Events</a>
 
   <div id="navbarNav" class="collapse navbar-collapse">
-    <ul class="navbar-nav ml-auto ">
+    <ul class="navbar-nav mr-auto ">
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/events">Show Events</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="/events">Upcoming Events</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLinkActive="active" routerLink="/add-book">Add Books</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto ">
+      <li class="nav-item">
+        <a *ngIf='!this.authService.isLoggedIn' class="nav-link" routerLinkActive="active" routerLink="/log-in">Login</a>
+      </li>
+      <li class="nav-item">
+        <a *ngIf='!this.authService.isLoggedIn' class="nav-link" routerLinkActive="active" routerLink="/signup">Signup</a>
+      </li>
+      <li class="nav-item">
+        <button (click)="logout()" *ngIf="this.authService.isLoggedIn" type="button" class="btn btn-danger">Logout</button>
       </li>
     </ul>
   </div>
